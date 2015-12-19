@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+<table class="ui compact celled definition table">
+  <thead>
+    <tr><h1>Listing Customers</h1></tr>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Family</th>
+      <th>Sexuality</th>
+      <th>Email</th>
+      <th>Father name</th>
+      <th>Inmate</th>
+      <th>S s</th>
+      <th>S m</th>
+      <th>Job</th>
+      <th>Phon</th>
+      <th>Tell</th>
+      <th></th>
+      <th></th>
+      <th></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+    <tr>
+      <td class="collapsing">
+        <div class="ui fitted slider checkbox">
+          <input type="checkbox"> <label></label>
+        </div>
+      </td>
+      <td><%= customer.name %></td>
+      <td><%= customer.family %></td>
+      <td><%= customer.sexuality %></td>
+      <td><%= customer.email %></td>
+      <td><%= customer.father_name %></td>
+      <td><%= customer.inmate %></td>
+      <td><%= customer.s_s %></td>
+      <td><%= customer.s_m %></td>
+      <td><%= customer.job %></td>
+      <td><%= customer.phon %></td>
+      <td><%= customer.tell %></td>
+      <td><%= link_to 'Show', customer %></td>
+      <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+      <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+  <tfoot class="full-width">
+    <tr>
+      <th></th>
+      <th colspan="14">
+        <div class="ui right floated small primary labeled icon button"><%= link_to "Add Customer" , new_customer_path %>
+          <i class="user icon"></i>
+        </div>
+        <div class="ui small button">
+          Approve
+        </div>
+        <div class="ui small  disabled button">
+          Approve All
+        </div>
+      </th>
+    </tr>
+  </tfoot>
+</table>

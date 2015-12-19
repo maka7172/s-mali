@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @membership_customer.customer_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @membership_customer.date %>
+</p>
+
+<p>
+  <strong>Sum:</strong>
+  <%= @membership_customer.sum %>
+</p>
+
+<%= link_to 'Edit', edit_membership_customer_path(@membership_customer) %> |
+<%= link_to 'Back', membership_customers_path %>

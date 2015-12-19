@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Payment:</strong>
+  <%= @payoff.payment %>
+</p>
+
+<p>
+  <strong>Usance:</strong>
+  <%= @payoff.usance_id %>
+</p>
+
+<p>
+  <strong>Forfeit:</strong>
+  <%= @payoff.forfeit %>
+</p>
+
+<p>
+  <strong>Sum:</strong>
+  <%= @payoff.sum %>
+</p>
+
+<%= link_to 'Edit', edit_payoff_path(@payoff) %> |
+<%= link_to 'Back', payoffs_path %> |
+<a href="/customers">customer</a>

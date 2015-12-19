@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @request_loan.customer_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @request_loan.date %>
+</p>
+
+<p>
+  <strong>Loan sum:</strong>
+  <%= @request_loan.loan_sum %>
+</p>
+
+<p>
+  <strong>Accepted:</strong>
+  <%= @request_loan.accepted %>
+</p>
+
+<p>
+  <strong>Loan percent:</strong>
+  <%= @request_loan.loan_percent %>
+</p>
+
+<%= link_to 'Edit', edit_request_loan_path(@request_loan) %> |
+<%= link_to 'Back', request_loans_path %> |
+<a href="/customers">customer</a>
+
+<p dir="rtl">
+  <button class="positive ui button" >پرداخت قسط وام</button>
+</p>
+<div class="daryaft" id="daryaft" style="display:none;">
+
+
+<%= form_for(@request_loan.payoffs.new) do |f| %>
+    <div class="field">
+    <%= f.label :loan_id %><br>
+    <%= f.number_field :request_loan_id %>
+  </div>
+  <div class="field">
+    <%= f.label :payment %><br>
+    <%= f.text_field :payment ,:value => @usance_payment.peyment %>
+  </div>
+  <div class="field">
+    <%= f.label :usance_id %><br>
+    <%= f.number_field :usance_id , :value => @usance_payment.id%>
+    <%= %>
+  </div>
+  <div class="field">
+    <%= f.label :forfeit %><br>
+    <%= f.text_field :forfeit %>
+  </div>
+  <div class="field">
+    <%= f.label :sum %><br>
+    <%= f.text_field :sum %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+<script type="text/javascript">
+$('document').ready(function(){
+  $('button').click(function(){
+    $("#daryaft").toggle();
+  });
+});
+
+</script>

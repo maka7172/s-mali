@@ -1,0 +1,2 @@
+module RequestLoansHelper
+end

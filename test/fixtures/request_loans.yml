@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 1
+  date: MyString
+  loan_sum: 1
+  accepted: false
+  loan_percent: 1
+
+two:
+  customer_id: 1
+  date: MyString
+  loan_sum: 1
+  accepted: false
+  loan_percent: 1

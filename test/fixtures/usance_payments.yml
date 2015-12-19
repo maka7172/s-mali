@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  peyment: 1.5
+  date: MyString
+  loan_id: 1
+  customer_id: 1
+  payoff: 1.5
+
+two:
+  peyment: 1.5
+  date: MyString
+  loan_id: 1
+  customer_id: 1
+  payoff: 1.5

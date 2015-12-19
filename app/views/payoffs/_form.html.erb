@@ -1,0 +1,37 @@
+<%= form_for(@payoff) do |f| %>
+  <% if @payoff.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@payoff.errors.count, "error") %> prohibited this payoff from being saved:</h2>
+
+      <ul>
+      <% @payoff.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :loan_id %><br>
+    <%= f.number_field :request_loan_id %>
+  </div>
+  <div class="field">
+    <%= f.label :payment %><br>
+    <%= f.text_field :payment %>
+  </div>
+  <div class="field">
+    <%= f.label :usance_id %><br>
+    <%= f.number_field :usance_id %>
+  </div>
+  <div class="field">
+    <%= f.label :forfeit %><br>
+    <%= f.text_field :forfeit %>
+  </div>
+  <div class="field">
+    <%= f.label :sum %><br>
+    <%= f.text_field :sum %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

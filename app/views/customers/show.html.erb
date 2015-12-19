@@ -1,0 +1,138 @@
+<p id="notice"><%= notice %></p>
+
+<table class="ui single line table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Family</th>
+      <th>Gender</th>
+      <th></th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+
+      <td><h1><%= @customer.name %><h1></td>
+      <td><h1><%= @customer.family %></h1></td>
+      <td><h1><%= @customer.sexuality %></h1></td>
+      </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Father Name</th>
+      <th>Inmate</th>
+      <th>S.S</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h1><%= @customer.email %></h1></td>
+      <td><h1><%= @customer.father_name %></h1></td>
+      <td><h1><%= @customer.inmate %></h1></td>
+      <td><h1><%= @customer.s_s %></h1></td>
+    </tr>
+  </tbody>
+  <thead>
+    <tr>
+      <th>S.M</th>
+      <th>Job</th>
+      <th>Phone</th>
+      <th>Tell</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+
+      <td><h1><%= @customer.s_m %></h1></td>
+      <td><h1><%= @customer.job %></h1></td>
+      <td><h1><%= @customer.phon %></h1></td>
+      <td><h1><%= @customer.tell %></h1></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %></br>
+
+  <p dir="rtl">
+    <button class="positive ui button" >ثبت درخواست وام</button>
+  </p>
+
+<div class="darkhast" id="darkhast" style="display:none;">
+<%= form_for(@customer.request_loans.new) do |f| %>
+    <div class="field">
+    <%= f.label :customer_id %><br>
+    <%= f.number_field :customer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.text_field :date , :value => Date.today %>
+  </div>
+  <div class="field">
+    <%= f.label :loan_sum %><br>
+    <%= f.number_field :loan_sum %>
+  </div>
+  <div class="field">
+    <%= f.label :accepted %><br>
+    <%= f.check_box :accepted %>
+  </div>
+  <div class="field">
+    <%= f.label :loan_percent %><br>
+    <%= f.number_field :loan_percent %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+<script type="text/javascript">
+$('document').ready(function(){
+  $('button').click(function(){
+    $("#darkhast").toggle();
+  });
+});
+
+</script>
+
+<div class="" id="show darkhst">
+
+  <center> <p><h3>customer request loan</h3></p></center>
+
+  <table class="ui single line table">
+    <thead>
+      <tr>
+        <th>Customer</th>
+        <th>Date</th>
+        <th>Loan sum</th>
+        <th>Accepted</th>
+        <th>Loan percent</th>
+        <th colspan="9"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @request_loans.each do |request_loan| %>
+      <% if request_loan.customer_id == @customer.id %>
+        <tr>
+          <td><%= request_loan.customer_id %></td>
+          <td><%= request_loan.date %></td>
+          <td><%= request_loan.loan_sum %></td>
+          <td><%= request_loan.accepted %></td>
+          <td><%= request_loan.loan_percent %></td>
+          <td><%= link_to 'Show', request_loan %></td>
+          <td><%= link_to 'Edit', edit_request_loan_path(request_loan) %></td>
+          <td><%= link_to 'Destroy', request_loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><a href="/request_loans/<%= request_loan.id %>">پرداخت قسط</a></td>
+        </tr>
+        <%end%>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+
+
+
+</div>
